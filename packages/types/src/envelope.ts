@@ -59,9 +59,15 @@ export type SessionEnvelopeItem =
 
 export type SessionEnvelope = BaseEnvelope<{ sent_at: string }, SessionEnvelopeItem>;
 
+export type ClientReportEnvelopeItemHeader = { type: 'client_report' };
+export type ClientReportEnvelopeItemPayload = {
+  timestamp: number;
+  discarded_events: Array<{ reason: Outcome; category: SentryRequestType; quantity: number }>;
+};
+
 export type ClientReportEnvelopeItem = BaseEnvelopeItem<
-  { type: 'client_report' },
-  { timestamp: number; discarded_events: { reason: Outcome; category: SentryRequestType; quantity: number } }
+  ClientReportEnvelopeItemHeader,
+  ClientReportEnvelopeItemPayload
 >;
 
 export type ClientReportEnvelope = BaseEnvelope<Record<string, unknown>, ClientReportEnvelopeItem>;

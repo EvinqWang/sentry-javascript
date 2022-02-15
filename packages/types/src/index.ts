@@ -4,8 +4,11 @@ export { Context, Contexts } from './context';
 export { DsnComponents, DsnLike, DsnProtocol } from './dsn';
 export { DebugImage, DebugImageType, DebugMeta } from './debugMeta';
 export {
+  BaseEnvelope,
   ClientReportEnvelope,
   ClientReportEnvelopeItem,
+  ClientReportEnvelopeItemHeader,
+  ClientReportEnvelopeItemPayload,
   Envelope,
   EventEnvelope,
   EventEnvelopeItem,
